@@ -32,6 +32,10 @@ call plug#end()
 
 " --- My keybindings ---
 nnoremap <Leader>f :GFiles<CR>
+nnoremap <Leader>sf :vsp<CR>:GFiles<CR>
+nnoremap <Leader>dc :Files ~/Documents/<CR>
+nnoremap <Leader>sdc :vsp<CR>:Files ~/Documents/<CR>
+
 " Disable search highlighting
 noremap <ESC> :noh<CR><ESC>
 " Easyclip takes over m for move,
@@ -49,9 +53,11 @@ set number
 set relativenumber
 
 " -- ALE config --
-let b:ale_fixers = {'javascript': ['prettier', 'eslint'],
-                \    'python' : ['black'],
+let g:ale_fixers = {'javascript': ['prettier', 'eslint'],
+                \   'python' : ['black'],
                 \}
 let g:ale_linters = {'clojure': ['clj-kondo']}
 let g:ale_fix_on_save = 1
 
+let g:jedi#use_splits_not_buffers = "left"
+let g:jedi#popup_on_dot = 0
