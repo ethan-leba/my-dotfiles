@@ -23,6 +23,8 @@ Plug 'takac/vim-hardtime'
 " Fuzzy search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+" TOML highlighting for those ill pyproject.tomls
+Plug 'cespare/vim-toml'
 " --- Python ---
 " Semantic highlighting for Python
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
@@ -38,6 +40,8 @@ nnoremap <Leader>sdc :vsp<CR>:Files ~/Documents/<CR>
 
 " Disable search highlighting
 noremap <ESC> :noh<CR><ESC>
+" Exiting terminal
+tnoremap <ESC> <C-\><C-n>
 " Easyclip takes over m for move,
 let g:EasyClipUseSubstituteDefaults = 1
 " So we're rebinding mark here
@@ -56,6 +60,8 @@ set relativenumber
 let g:ale_fixers = {'javascript': ['prettier', 'eslint'],
                 \   'python' : ['black'],
                 \}
+" MYPY has trouble finding imports (at least with my starry workflow)
+let g:ale_python_mypy_options = "--ignore-missing-imports"
 let g:ale_linters = {'clojure': ['clj-kondo']}
 let g:ale_fix_on_save = 1
 
