@@ -10,6 +10,8 @@ Plug 'dense-analysis/ale'
 Plug 'preservim/nerdtree'
 " Git integration
 Plug 'tpope/vim-fugitive'
+" Show git conflicts in gutter
+Plug 'airblade/vim-gitgutter'
 " Same keybinds for vim and tmux
 Plug 'christoomey/vim-tmux-navigator'
 " Better surrounding
@@ -25,6 +27,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " TOML highlighting for those ill pyproject.tomls
 Plug 'cespare/vim-toml'
+" Make swapping args ez
+Plug 'machakann/vim-swap'
 " --- Python ---
 " Semantic highlighting for Python
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
@@ -65,5 +69,4 @@ let g:ale_python_mypy_options = "--ignore-missing-imports"
 let g:ale_linters = {'clojure': ['clj-kondo']}
 let g:ale_fix_on_save = 1
 
-let g:jedi#use_splits_not_buffers = "left"
 let g:jedi#popup_on_dot = 0
