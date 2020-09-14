@@ -6,8 +6,6 @@ call plug#begin()
 Plug 'itchyny/lightline.vim'
 " Linter
 Plug 'dense-analysis/ale'
-" Filesystem
-Plug 'preservim/nerdtree'
 " Git integration
 Plug 'tpope/vim-fugitive'
 " Show git conflicts in gutter
@@ -55,10 +53,14 @@ nnoremap gm m
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
+" Git bindings
+nnoremap gs :Git<CR>
+nnoremap gd :Gdiff master<CR>
+
 " -- Nvim config --
 " Enables the line numbers
-set number
-set relativenumber
+" set number
+" set relativenumber
 
 " -- ALE config --
 let g:ale_fixers = {'javascript': ['prettier', 'eslint'],
@@ -70,3 +72,9 @@ let g:ale_linters = {'clojure': ['clj-kondo']}
 let g:ale_fix_on_save = 1
 
 let g:jedi#popup_on_dot = 0
+let g:jedi#show_call_signatures = "0"
+
+" Folds
+set foldmethod=indent
+set foldnestmax=2
+set foldlevel=99
