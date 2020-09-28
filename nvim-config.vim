@@ -26,7 +26,7 @@ Plug 'junegunn/fzf.vim'
 " TOML highlighting for those ill pyproject.tomls
 Plug 'cespare/vim-toml'
 " Make swapping args ez
-Plug 'machakann/vim-swap'
+" Plug 'machakann/vim-swap'
 " --- Python ---
 " Semantic highlighting for Python
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
@@ -55,7 +55,9 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
 " Git bindings
 nnoremap gs :Git<CR>
+nnoremap gc :Gclog<CR>
 nnoremap gd :Gdiff master<CR>
+nnoremap gt :Git mergetool<CR>
 
 " -- Nvim config --
 " Enables the line numbers
@@ -64,7 +66,7 @@ nnoremap gd :Gdiff master<CR>
 
 " -- ALE config --
 let g:ale_fixers = {'javascript': ['prettier', 'eslint'],
-                \   'python' : ['black'],
+                \   'python' : ['black', 'reorder-python-imports'],
                 \}
 " MYPY has trouble finding imports (at least with my starry workflow)
 let g:ale_python_mypy_options = "--ignore-missing-imports"
